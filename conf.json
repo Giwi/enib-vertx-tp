@@ -7,6 +7,6 @@
     "host":"localhost",
     "port":27017,
     "dbname":"enib",
-    "staticImgs": "/home/lambour/perso/enib/cai/tp/2k14/vertx/enib-vertx-tp/src/main/resources/web/beers/img"
+    "staticImgs": "./src/main/resources/web/beers/img"
   }
 }
