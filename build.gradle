@@ -42,6 +42,14 @@ install - install any jars produced to the local Maven repository (.m2)
 
  */
 
+
+
+repositories {
+  maven {
+   url "file:/usr/local/CAI/WEB/devtools/static-repo/"
+  }
+}
+
 dependencies {
   /*
   Add your module jar dependencies here
