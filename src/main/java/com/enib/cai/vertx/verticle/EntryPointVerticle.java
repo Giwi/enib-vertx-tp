@@ -1,7 +1,5 @@
 package com.enib.cai.vertx.verticle;
 
-import com.enib.cai.vertx.guice.GuiceModuleHolder;
-import com.google.inject.Injector;
 import org.vertx.java.core.json.JsonObject;
 import org.vertx.java.platform.Verticle;
 
