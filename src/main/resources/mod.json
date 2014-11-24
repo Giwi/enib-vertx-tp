@@ -1,4 +1,4 @@
 {
-  "main": "com.enib.cai.vertx.verticle.EntryPointVerticle",
+  "main": "groovy:com.enib.cai.vertx.verticle.EntryPointVerticle",
   "auto-redeploy": true
 }

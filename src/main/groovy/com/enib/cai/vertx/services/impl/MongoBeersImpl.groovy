@@ -32,6 +32,7 @@ public class MongoBeersImpl implements Beers {
         DBObject object = cursor.next();
 
         JsonObject beer = new JsonObject();
+
         beer.putNumber("alcohol", (Number) object.get("alcohol"));
         beer.putString("description", (String) object.get("description"));
         beer.putString("id",(String) object.get("_id"));

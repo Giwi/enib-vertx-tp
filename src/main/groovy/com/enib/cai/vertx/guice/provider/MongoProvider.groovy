@@ -21,7 +21,8 @@ public class MongoProvider implements Provider<DB> {
 
   @Inject
   @Named("mongo")
-  private JsonObject config;
+  private Map<String,Object> config
+
 
   private MongoClient mongo;
   private final AtomicBoolean mongoInitialized = new AtomicBoolean(false);
@@ -30,9 +31,9 @@ public class MongoProvider implements Provider<DB> {
   public DB get() {
     if (!mongoInitialized.getAndSet(true)) {
       try {
-        mongo = new MongoClient(config.getString("host"), config.getInteger("port"));
+        mongo = new MongoClient((String)config["host"], (Integer)config["port"]);
 
-        String path = config.getString("staticImgs");
+        String path = config["staticImgs"];
         staticInit(path);
 
       } catch (UnknownHostException e) {
@@ -40,14 +41,14 @@ public class MongoProvider implements Provider<DB> {
       }
 
     }
-    return mongo.getDB(config.getString("dbname"));
+    return mongo.getDB(config["dbname"]);
   }
 
 
   private void staticInit(String path) {
     // Do the static data injection
     // init the beers
-    DB db = mongo.getDB(config.getString("dbname"));
+    DB db = mongo.getDB(config["dbname"]);
     DBObject bson = ( DBObject ) JSON.parse("{\n" +
         "  \"alcohol\": 6.8,\n" +
         "  \"availability\": \"Year round\",\n" +
